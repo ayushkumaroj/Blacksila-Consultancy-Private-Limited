@@ -159,41 +159,46 @@ export function CtaSection() {
 
   // ── Main section ────────────────────────────────────────────────────────
   return (
-    <section id="cta" className="bg-gradient-navy relative overflow-hidden py-12 lg:py-16">
+    <section id="cta" className="bg-gradient-navy relative overflow-hidden py-16 lg:py-24">
       {/* Background texture */}
-      <div className="absolute inset-0 hero-dot-grid opacity-40" />
+      <div className="absolute inset-0 hero-dot-grid opacity-40 mix-blend-overlay pointer-events-none" />
       <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] rounded-full opacity-[0.07]"
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full opacity-[0.08] pointer-events-none blur-[100px]"
         style={{ background: "radial-gradient(ellipse, var(--color-teal-light), transparent 70%)" }}
       />
 
-      <div className="container-ds relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+      <div className="container-ds relative z-10 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
           {/* ── Left — copy ─────────────────────────────────────────── */}
-          <div className="flex flex-col gap-6">
-            <span className="type-label text-[var(--color-teal-light)]">
-              <span className="inline-flex items-center gap-2">
-                <span className="w-4 h-px bg-[var(--color-teal-light)]" />
-                Get Started Today
-                <span className="w-4 h-px bg-[var(--color-teal-light)]" />
+          <div className="flex flex-col gap-8 lg:pr-8">
+            <div className="flex flex-col gap-6">
+              <span className="type-label flex items-center gap-3">
+                <span className="w-6 h-[2px] bg-[var(--color-teal-light)] rounded-full" />
+                <span className="text-[var(--color-teal-light)] tracking-[0.15em] font-extrabold uppercase text-[0.75rem]">Get Started Today</span>
               </span>
-            </span>
 
-            <h2 className="type-h2 text-white">
-              Start your business journey — free consultation
-            </h2>
+              <h2 className="type-h2 text-white font-extrabold tracking-tight leading-[1.15]" style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}>
+                Start your business journey with a free consultation
+              </h2>
 
-            <p className="type-body-l" style={{ color: "rgba(255,255,255,0.7)" }}>
-              Tell us what you need and an expert consultant will call you back within 2 hours.
-              Zero commitment, completely free.
-            </p>
+              <p className="text-[1.125rem] leading-relaxed max-w-[42ch]" style={{ color: "rgba(255,255,255,0.7)" }}>
+                Tell us what you need and an expert consultant will immediately review your request and call you back within 2 hours. Zero commitment, completely free.
+              </p>
+            </div>
 
-            <ul className="flex flex-col gap-3">
+            <div className="h-px w-full max-w-sm" style={{ background: "linear-gradient(to right, rgba(255,255,255,0.1), transparent)" }} />
+
+            <ul className="flex flex-col gap-4">
               {TRUST_POINTS.map((pt) => (
-                <li key={pt} className="flex items-center gap-3">
-                  <CheckCircle2 size={16} className="text-[var(--color-teal-light)] flex-shrink-0" />
-                  <span className="text-[0.9375rem] font-medium" style={{ color: "rgba(255,255,255,0.8)" }}>
+                <li key={pt} className="flex items-start gap-3.5">
+                  <div 
+                    className="mt-[4px] rounded-full p-[3px] flex-shrink-0"
+                    style={{ background: "rgba(25,196,181,0.15)", color: "var(--color-teal-light)" }}
+                  >
+                    <CheckCircle2 size={15} strokeWidth={2.5} />
+                  </div>
+                  <span className="text-[1.0625rem] font-medium leading-relaxed" style={{ color: "rgba(255,255,255,0.85)" }}>
                     {pt}
                   </span>
                 </li>
@@ -201,156 +206,166 @@ export function CtaSection() {
             </ul>
 
             {/* Reassurance pill */}
-            <div
-              className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl border border-white/15"
-              style={{ background: "rgba(255,255,255,0.06)" }}
-            >
-              <ShieldCheck size={16} className="text-[var(--color-teal-light)] flex-shrink-0" />
-              <span className="text-[0.8125rem] font-medium" style={{ color: "rgba(255,255,255,0.75)" }}>
-                100% Free · No Commitment · Response in 2 Hours
-              </span>
+            <div className="mt-2">
+              <div
+                className="inline-flex items-center gap-3 px-5 py-3 rounded-2xl border"
+                style={{ background: "rgba(255,255,255,0.06)", borderColor: "rgba(255,255,255,0.15)", backdropFilter: "blur(8px)" }}
+              >
+                <ShieldCheck size={18} className="text-[var(--color-teal-light)] flex-shrink-0" />
+                <span className="text-[0.875rem] font-bold tracking-wide" style={{ color: "rgba(255,255,255,0.85)" }}>
+                  100% Free · No Commitment · Response within 2 Hours
+                </span>
+              </div>
             </div>
           </div>
 
           {/* ── Right — form card ────────────────────────────────────── */}
-          <div
-            className="rounded-2xl p-5 md:p-6"
-            style={{
-              background: "rgba(255,255,255,0.96)",
-              backdropFilter: "blur(12px)",
-              boxShadow: "0 20px 60px rgba(0,0,0,0.25)",
-            }}
-          >
-            <h3 className="type-h3 mb-1">Request a free callback</h3>
-            <p className="type-body-s mb-4">Fill in the form and we&apos;ll reach out within 2 hours.</p>
+          <div className="relative">
+            {/* Soft glow behind form */}
+            <div className="absolute -inset-4 rounded-[2rem] blur-2xl opacity-50 bg-[var(--color-teal-light)] -z-10" />
 
-            <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-3">
+            <div
+              className="rounded-[1.25rem] p-6 lg:p-8 relative overflow-hidden"
+              style={{
+                background: "rgba(255,255,255,1)",
+                boxShadow: "0 24px 80px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.1)",
+              }}
+            >
+              <h3 className="text-[1.5rem] font-extrabold text-[var(--color-navy)] mb-5 tracking-tight">Request a free callback</h3>
 
-              {/* Full Name */}
-              <div className="flex flex-col gap-1.5">
-                <label className="text-[0.8125rem] font-semibold text-[var(--color-navy)]" htmlFor="cta-name">
-                  Full Name <span className="text-red-500">*</span>
-                </label>
-                <input
-                  id="cta-name"
-                  name="name"
-                  type="text"
-                  placeholder="Rahul Sharma"
-                  className={`input-premium ${errors.name ? "!border-red-400 !shadow-[0_0_0_3px_rgba(239,68,68,0.12)]" : ""}`}
-                  autoComplete="name"
-                  value={form.name}
-                  onChange={handleChange}
-                  disabled={status === "loading"}
-                />
-                {errors.name && (
-                  <p className="flex items-center gap-1.5 text-[0.75rem] text-red-500 font-medium">
-                    <AlertCircle size={12} /> {errors.name}
-                  </p>
+              <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-4">
+
+                {/* Grid for compacting Name and Mobile into one row on desktop */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {/* Full Name */}
+                  <div className="flex flex-col gap-1.5">
+                    <label className="text-[0.8125rem] font-bold text-[var(--color-navy)] ml-1" htmlFor="cta-name">
+                      Full Name <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      id="cta-name"
+                      name="name"
+                      type="text"
+                      placeholder="Rahul Sharma"
+                      className={`input-premium h-11 bg-gray-50 hover:bg-white focus:bg-white !shadow-sm focus:!shadow-md transition-all ${errors.name ? "!border-red-400 !shadow-[0_0_0_3px_rgba(239,68,68,0.12)]" : ""}`}
+                      autoComplete="name"
+                      value={form.name}
+                      onChange={handleChange}
+                      disabled={status === "loading"}
+                    />
+                    {errors.name && (
+                      <p className="flex items-center gap-1.5 text-[0.75rem] text-red-500 font-medium mt-0.5 ml-1">
+                        <AlertCircle size={12} /> {errors.name}
+                      </p>
+                    )}
+                  </div>
+
+                  {/* Mobile Number */}
+                  <div className="flex flex-col gap-1.5">
+                    <label className="text-[0.8125rem] font-bold text-[var(--color-navy)] ml-1" htmlFor="cta-phone">
+                      Mobile Number <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      id="cta-phone"
+                      name="mobile"
+                      type="tel"
+                      placeholder="+91 XXXXX XXXXX"
+                      className={`input-premium h-11 bg-gray-50 hover:bg-white focus:bg-white !shadow-sm focus:!shadow-md transition-all ${errors.mobile ? "!border-red-400 !shadow-[0_0_0_3px_rgba(239,68,68,0.12)]" : ""}`}
+                      autoComplete="tel"
+                      value={form.mobile}
+                      onChange={handleChange}
+                      disabled={status === "loading"}
+                    />
+                    {errors.mobile && (
+                      <p className="flex items-center gap-1.5 text-[0.75rem] text-red-500 font-medium mt-0.5 ml-1">
+                        <AlertCircle size={12} /> {errors.mobile}
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                {/* Service Required */}
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-[0.8125rem] font-bold text-[var(--color-navy)] ml-1" htmlFor="cta-service">
+                    Service Required <span className="text-red-500">*</span>
+                  </label>
+                  <select
+                    id="cta-service"
+                    name="service"
+                    className={`input-premium h-11 bg-gray-50 hover:bg-white focus:bg-white !shadow-sm focus:!shadow-md transition-all ${errors.service ? "!border-red-400 !shadow-[0_0_0_3px_rgba(239,68,68,0.12)]" : ""}`}
+                    value={form.service}
+                    onChange={handleChange}
+                    disabled={status === "loading"}
+                  >
+                    <option value="">Select a service focus</option>
+                    {SERVICES.map((s) => (
+                      <option key={s} value={s}>{s}</option>
+                    ))}
+                  </select>
+                  {errors.service && (
+                    <p className="flex items-center gap-1.5 text-[0.75rem] text-red-500 font-medium mt-0.5 ml-1">
+                      <AlertCircle size={12} /> {errors.service}
+                    </p>
+                  )}
+                </div>
+
+                {/* Message */}
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-[0.8125rem] font-bold text-[var(--color-navy)] ml-1" htmlFor="cta-message">
+                    Message <span className="text-red-500">*</span>
+                  </label>
+                  <textarea
+                    id="cta-message"
+                    name="message"
+                    rows={2}
+                    placeholder="Tell us a little bit about what you need..."
+                    className={`input-premium bg-gray-50 hover:bg-white focus:bg-white !shadow-sm focus:!shadow-md transition-all resize-none ${errors.message ? "!border-red-400 !shadow-[0_0_0_3px_rgba(239,68,68,0.12)]" : ""}`}
+                    style={{ lineHeight: "1.5" }}
+                    value={form.message}
+                    onChange={handleChange}
+                    disabled={status === "loading"}
+                  />
+                  {errors.message && (
+                    <p className="flex items-center gap-1.5 text-[0.75rem] text-red-500 font-medium mt-0.5 ml-1">
+                      <AlertCircle size={12} /> {errors.message}
+                    </p>
+                  )}
+                </div>
+
+                {/* API-level error */}
+                {status === "error" && apiError && (
+                  <div className="flex items-start gap-2 bg-red-50 border border-red-200 rounded-xl px-4 py-3 mt-1">
+                    <AlertCircle size={15} className="text-red-500 flex-shrink-0 mt-[2px]" />
+                    <p className="text-[0.8125rem] font-medium text-red-700">{apiError}</p>
+                  </div>
                 )}
-              </div>
 
-              {/* Mobile Number */}
-              <div className="flex flex-col gap-1.5">
-                <label className="text-[0.8125rem] font-semibold text-[var(--color-navy)]" htmlFor="cta-phone">
-                  Mobile Number <span className="text-red-500">*</span>
-                </label>
-                <input
-                  id="cta-phone"
-                  name="mobile"
-                  type="tel"
-                  placeholder="+91 XXXXX XXXXX"
-                  className={`input-premium ${errors.mobile ? "!border-red-400 !shadow-[0_0_0_3px_rgba(239,68,68,0.12)]" : ""}`}
-                  autoComplete="tel"
-                  value={form.mobile}
-                  onChange={handleChange}
-                  disabled={status === "loading"}
-                />
-                {errors.mobile && (
-                  <p className="flex items-center gap-1.5 text-[0.75rem] text-red-500 font-medium">
-                    <AlertCircle size={12} /> {errors.mobile}
-                  </p>
-                )}
-              </div>
-
-              {/* Service Required */}
-              <div className="flex flex-col gap-1.5">
-                <label className="text-[0.8125rem] font-semibold text-[var(--color-navy)]" htmlFor="cta-service">
-                  Service Required <span className="text-red-500">*</span>
-                </label>
-                <select
-                  id="cta-service"
-                  name="service"
-                  className={`input-premium ${errors.service ? "!border-red-400 !shadow-[0_0_0_3px_rgba(239,68,68,0.12)]" : ""}`}
-                  value={form.service}
-                  onChange={handleChange}
+                {/* Submit button */}
+                <Button
+                  variant="primary"
+                  className="w-full h-12 text-[1rem] font-extrabold mt-2 shadow-[0_8px_20px_rgba(15,155,142,0.3)] hover:-translate-y-0.5 transition-all"
+                  type="submit"
                   disabled={status === "loading"}
                 >
-                  <option value="">Select a service</option>
-                  {SERVICES.map((s) => (
-                    <option key={s} value={s}>{s}</option>
-                  ))}
-                </select>
-                {errors.service && (
-                  <p className="flex items-center gap-1.5 text-[0.75rem] text-red-500 font-medium">
-                    <AlertCircle size={12} /> {errors.service}
-                  </p>
-                )}
-              </div>
+                  {status === "loading" ? (
+                    <span className="flex items-center justify-center gap-3">
+                      <Loader2 size={18} className="animate-spin" />
+                      Submitting Request...
+                    </span>
+                  ) : (
+                    "Request Free Consultation"
+                  )}
+                </Button>
 
-              {/* Message */}
-              <div className="flex flex-col gap-1.5">
-                <label className="text-[0.8125rem] font-semibold text-[var(--color-navy)]" htmlFor="cta-message">
-                  Message <span className="text-red-500">*</span>
-                </label>
-                <textarea
-                  id="cta-message"
-                  name="message"
-                  rows={2}
-                  placeholder="Tell us your requirement..."
-                  className={`input-premium resize-none ${errors.message ? "!border-red-400 !shadow-[0_0_0_3px_rgba(239,68,68,0.12)]" : ""}`}
-                  style={{ lineHeight: "1.6" }}
-                  value={form.message}
-                  onChange={handleChange}
-                  disabled={status === "loading"}
-                />
-                {errors.message && (
-                  <p className="flex items-center gap-1.5 text-[0.75rem] text-red-500 font-medium">
-                    <AlertCircle size={12} /> {errors.message}
+                <div className="flex items-center justify-center gap-2 mt-1">
+                  <Lock size={11} className="text-gray-400" />
+                  <p className="text-[0.75rem] text-gray-500 font-medium tracking-wide">
+                    Your information is 100% secure and never shared
                   </p>
-                )}
-              </div>
-
-              {/* API-level error */}
-              {status === "error" && apiError && (
-                <div className="flex items-start gap-2 bg-red-50 border border-red-200 rounded-xl px-3 py-2.5">
-                  <AlertCircle size={15} className="text-red-500 flex-shrink-0 mt-0.5" />
-                  <p className="text-[0.8125rem] text-red-600">{apiError}</p>
                 </div>
-              )}
 
-              {/* Submit button */}
-              <Button
-                variant="primary"
-                className="w-full h-11 text-[0.9375rem] mt-0.5 shadow-md"
-                type="submit"
-                disabled={status === "loading"}
-              >
-                {status === "loading" ? (
-                  <span className="flex items-center justify-center gap-2">
-                    <Loader2 size={16} className="animate-spin" />
-                    Submitting…
-                  </span>
-                ) : (
-                  "Request Free Consultation"
-                )}
-              </Button>
-
-              <p className="flex items-center justify-center gap-1.5 text-[0.75rem] text-gray-400 text-center">
-                <Lock size={11} />
-                Your information is 100% secure and never shared
-              </p>
-
-            </form>
+              </form>
+            </div>
           </div>
 
         </div>

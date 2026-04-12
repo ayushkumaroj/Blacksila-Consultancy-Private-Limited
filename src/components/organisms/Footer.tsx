@@ -1,4 +1,5 @@
 import { Mail, Phone, MapPin } from "lucide-react";
+import { LogoPlaceholder } from "@/components/atoms/LogoPlaceholder";
 import { PHONE_HREF, PHONE_DISPLAY } from "@/config/contact";
 
 const SOCIAL = [
@@ -72,20 +73,11 @@ export function Footer() {
 
           {/* Brand column */}
           <div className="lg:col-span-4 flex flex-col gap-5">
-            {/* Logo — footer is always dark → use light-version (white/gold, transparent bg) */}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/logo-light-version.png"
-              alt="BlackSila Consultancy Pvt. Ltd."
-              style={{
-                height:    "3.75rem",
-                maxWidth:  "clamp(180px, 50vw, 280px)",
-                width:     "auto",
-                display:   "block",
-                objectFit: "contain",
-                objectPosition: "left center",
-              }}
-            />
+            {/*
+              PLACEHOLDER: swap for the real logo when assets are ready.
+              Original image: /logo-light-version.png (light version for dark bg)
+            */}
+            <LogoPlaceholder variant="light" height="3.75rem" />
 
             <p className="text-[0.875rem] leading-relaxed max-w-[36ch]">
               Your trusted partner for business compliance, expert tax consulting, and legal advisory services across India.

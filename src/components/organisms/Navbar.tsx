@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { LogoPlaceholder } from "@/components/atoms/LogoPlaceholder";
 
 const NAV_LINKS = [
   { label: "Home", href: "#" },
@@ -11,13 +12,8 @@ const NAV_LINKS = [
   { label: "Blog", href: "#blog" },
 ];
 
-// ── Logo dimensions ─────────────────────────────────────────────────────
-// Actual logo aspect ratio ≈ 4.5 : 1  (wide horizontal lockup)
-// Mobile: 160px keeps it readable without overflow on 320px screens
-// Desktop: 248px fills the full natural width
-const LOGO_H = "3.375rem";         // 54px — fills navbar nicely
-const LOGO_MAX_W_MOBILE = "160px"; // safe on 320px+ screens
-const LOGO_MAX_W = "248px";        // full width on md+
+// Spacer width matches the logo slot so nav links stay true-centre on desktop
+const LOGO_MAX_W = "248px";
 
 
 export function Navbar() {
@@ -56,62 +52,17 @@ export function Navbar() {
       <div className="container-ds flex items-center h-[4.25rem] gap-4">
 
         {/* ── Logo ─────────────────────────────────────────────────────── */}
-        <a
-          href="#"
-          aria-label="Blacksila Consultancy home"
-          className="flex-shrink-0 relative flex items-center"
-          style={{ height: LOGO_H, width: "clamp(140px, 35vw, 248px)" }}
-        >
-          {/*
-            Two images stacked via absolute positioning.
-            opacity cross-fade at scroll ≥ 60px gives a smooth brand transition.
-          */}
+        {/*
+          PLACEHOLDER: real logo images are commented out below.
+          When the official logo is ready, remove <LogoPlaceholder> and
+          restore the two <img> elements (see LogoPlaceholder.tsx for details).
 
-          {/* LIGHT version — white/gold elements on transparent bg → dark hero */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/logo-light-version.png"
-            alt=""
-            aria-hidden={scrolled}
-            style={{
-              position: "absolute",
-              top: "50%",
-              left: 0,
-              transform: "translateY(-50%)",
-              height: LOGO_H,
-              maxWidth: "clamp(140px, 35vw, 248px)",
-              width: "auto",
-              objectFit: "contain",
-              objectPosition: "left center",
-              userSelect: "none",
-              opacity: scrolled ? 0 : 1,
-              pointerEvents: scrolled ? "none" : "auto",
-              transition: "opacity 0.45s ease",
-            }}
-          />
-
-          {/* DARK version — navy/gold elements on transparent bg → white navbar */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/logo-dark-version.png"
-            alt="BlackSila Consultancy Pvt. Ltd."
-            aria-hidden={!scrolled}
-            style={{
-              position: "absolute",
-              top: "50%",
-              left: 0,
-              transform: "translateY(-50%)",
-              height: LOGO_H,
-              maxWidth: "clamp(140px, 35vw, 248px)",
-              width: "auto",
-              objectFit: "contain",
-              objectPosition: "left center",
-              userSelect: "none",
-              opacity: scrolled ? 1 : 0,
-              pointerEvents: scrolled ? "auto" : "none",
-              transition: "opacity 0.45s ease",
-            }}
-          />
+          Original images:
+            light → /logo-light-version.png  (used on dark hero)
+            dark  → /logo-dark-version.png   (used on white scrolled navbar)
+        */}
+        <a href="#" aria-label="Blacksila Consultancy home">
+          <LogoPlaceholder variant={scrolled ? "dark" : "light"} />
         </a>
 
         {/* ── Desktop nav links — centered in flex-1 ────────────────────── */}

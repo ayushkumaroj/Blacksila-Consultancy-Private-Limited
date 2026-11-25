@@ -7,3 +7,8 @@ export type {
   HeroComplianceState,
   HeroMarqueeService,
 } from "./hero";
+export type { Stat } from "./stats";
+export type { Testimonial } from "./testimonials";
+export type { BlogPost } from "./blog";
+export type { Faq, LicenseGuideItem } from "./faq";
+export type { AboutSummaryCard, WhyChooseUsValue } from "./why-choose-us";

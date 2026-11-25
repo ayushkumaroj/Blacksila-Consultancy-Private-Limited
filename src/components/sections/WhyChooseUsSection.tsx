@@ -1,47 +1,6 @@
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import {
-  Users, IndianRupee, UserCheck, ShieldCheck, TrendingUp, Layers,
-  Target,
-} from "lucide-react";
-
-const VALUES = [
-  {
-    icon: Users,
-    title: "Experienced & Professional Team",
-    desc: "A seasoned team of consultants, tax experts, and compliance professionals handling every case with expertise and care.",
-    stat: "Expert team",
-  },
-  {
-    icon: TrendingUp,
-    title: "Fast and Reliable Service",
-    desc: "Quick turnarounds and proactive updates ensure your business never faces unnecessary delays or missed deadlines.",
-    stat: "On-time delivery",
-  },
-  {
-    icon: IndianRupee,
-    title: "Transparent Pricing",
-    desc: "Clear, upfront quotes with no hidden fees. Government charges communicated in advance — you pay only what you agree to.",
-    stat: "No hidden fees",
-  },
-  {
-    icon: UserCheck,
-    title: "Personalized One-to-One Consulting",
-    desc: "Dedicated expert assigned to your account who knows your business and provides personalised guidance at every step.",
-    stat: "1-on-1 support",
-  },
-  {
-    icon: Target,
-    title: "Market-Based Business Guidance",
-    desc: "We back every recommendation with real market research, demand analysis, and industry trend data — not just general advice.",
-    stat: "Data-driven insights",
-  },
-  {
-    icon: Layers,
-    title: "End-to-End Business Solutions",
-    desc: "From idea validation and registration to compliance, taxation, and growth planning — we support you at every stage.",
-    stat: "Complete coverage",
-  },
-];
+import { ShieldCheck } from "lucide-react";
+import { ABOUT_SUMMARY_CARDS, WHY_CHOOSE_US_VALUES } from "@/data/why-choose-us";
 
 export function WhyChooseUsSection() {
   return (
@@ -104,12 +63,7 @@ export function WhyChooseUsSection() {
 
             {/* Right — decorative stat cards */}
             <div className="grid grid-cols-2 gap-4">
-              {[
-                { value: "End-to-End", label: "Business Solutions", sub: "From idea to execution" },
-                { value: "1-on-1", label: "Expert Consulting", sub: "Personalized guidance" },
-                { value: "Market", label: "Research Backed", sub: "Real insights, real data" },
-                { value: "Legal &", label: "Tax Compliant", sub: "Fully covered, every step" },
-              ].map((item, i) => (
+              {ABOUT_SUMMARY_CARDS.map((item, i) => (
                 <div
                   key={i}
                   className="rounded-2xl border border-[var(--color-grey-border)] p-5 flex flex-col gap-1.5 hover:shadow-[var(--shadow-card-hover)] hover:-translate-y-0.5 transition-all duration-250"
@@ -142,7 +96,7 @@ export function WhyChooseUsSection() {
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {VALUES.map((val, i) => {
+            {WHY_CHOOSE_US_VALUES.map((val, i) => {
               const Icon = val.icon;
               return (
                 <div

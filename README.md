@@ -6,6 +6,8 @@ See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for project boundaries, route-l
 
 ## Run locally
 
+Node.js 22 or newer is required.
+
 Install dependencies:
 
 ```bash

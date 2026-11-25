@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { PhoneCall, X } from "lucide-react";
-import { WA_HREF, PHONE_HREF, PHONE_DISPLAY } from "@/config/contact";
+import { WA_HREF, PHONE_HREF } from "@/config/contact";
+import { COMPANY_PHONE_DISPLAY } from "@/config/site";
 
 const WHATSAPP_ICON = (
   <svg width="26" height="26" viewBox="0 0 24 24" fill="white" aria-hidden>
@@ -38,7 +39,7 @@ export function CallFAB() {
     <div className="fixed bottom-6 left-6 z-50 md:hidden">
       <a
         href={PHONE_HREF}
-        aria-label={`Call Us: ${PHONE_DISPLAY}`}
+        aria-label={`Call Us: ${COMPANY_PHONE_DISPLAY}`}
         className="w-14 h-14 rounded-full flex items-center justify-center shadow-xl hover:scale-110 active:scale-95 transition-transform duration-200"
         style={{
           background: "linear-gradient(135deg, var(--color-navy), var(--color-navy-light))",

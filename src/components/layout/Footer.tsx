@@ -1,7 +1,13 @@
 import type { ReactNode } from "react";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { LogoPlaceholder } from "@/components/ui/LogoPlaceholder";
-import { PHONE_HREF, PHONE_DISPLAY } from "@/config/contact";
+import { PHONE_HREF } from "@/config/contact";
+import {
+  COMPANY_ADDRESS,
+  COMPANY_EMAIL,
+  COMPANY_LEGAL_NAME,
+  COMPANY_PHONE_DISPLAY,
+} from "@/config/site";
 import {
   FOOTER_COMPANY_LINKS,
   FOOTER_POLICY_LINKS,
@@ -61,19 +67,19 @@ export function Footer() {
             <ul className="flex flex-col gap-3 text-[0.875rem]">
               <li className="flex items-center gap-2.5">
                 <Mail size={14} className="text-[var(--color-teal-light)] flex-shrink-0" />
-                <a href="mailto:blacksila.services@gmail.com" className="hover:text-white transition-colors">
-                  blacksila.services@gmail.com
+                <a href={`mailto:${COMPANY_EMAIL}`} className="hover:text-white transition-colors">
+                  {COMPANY_EMAIL}
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
                 <Phone size={14} className="text-[var(--color-teal-light)] flex-shrink-0" />
                 <a href={PHONE_HREF} className="hover:text-white transition-colors">
-                  {PHONE_DISPLAY}
+                  {COMPANY_PHONE_DISPLAY}
                 </a>
               </li>
               <li className="flex items-start gap-2.5">
                 <MapPin size={14} className="text-[var(--color-teal-light)] flex-shrink-0 mt-0.5" />
-                <span>Office No-07, Floor No-4th, Hotel Debonair Compex,<br />New Kalimati, Sakchi, Jamshedpur, Jharkhand-831001</span>
+                <span>{COMPANY_ADDRESS.line1}<br />{COMPANY_ADDRESS.line2}</span>
               </li>
             </ul>
 
@@ -158,7 +164,7 @@ export function Footer() {
       <div className="border-t border-white/10">
         <div className="container-ds py-5 flex flex-col md:flex-row items-center justify-between gap-3 text-[0.8125rem]">
           <p className="text-white/40 text-center md:text-left">
-            &copy; {new Date().getFullYear()} BlackSila Consultancy Pvt. Ltd. All rights reserved.
+            &copy; {new Date().getFullYear()} {COMPANY_LEGAL_NAME} All rights reserved.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-1">
             {FOOTER_POLICY_LINKS.map(({ label, href }) => (

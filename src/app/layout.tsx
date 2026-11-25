@@ -3,10 +3,11 @@ import "@/styles/globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppWidget, CallFAB, CookieBanner } from "@/components/widgets/PersistentWidgets";
+import { SITE_METADATA_DESCRIPTION, SITE_METADATA_TITLE } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "Blacksila Consultancy - Expert Business Consulting, Tax & Compliance",
-  description: "Complete solutions to start, manage, and grow your business — from registration and taxation to expert consulting backed by market research, current trends, and future opportunities.",
+  title: SITE_METADATA_TITLE,
+  description: SITE_METADATA_DESCRIPTION,
 };
 
 export default function RootLayout({

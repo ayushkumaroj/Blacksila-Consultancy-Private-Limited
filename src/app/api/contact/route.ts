@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+import { GMAIL_PASS, GMAIL_USER } from "@/lib/env.server";
 
 export async function POST(req: NextRequest) {
   try {
@@ -28,14 +29,14 @@ This request was submitted via the Blacksila website.
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: process.env.GMAIL_USER,   // e.g. blacksila.services@gmail.com
-        pass: process.env.GMAIL_PASS,   // Gmail App Password (not account password)
+        user: GMAIL_USER,   // e.g. blacksila.services@gmail.com
+        pass: GMAIL_PASS,   // Gmail App Password (not account password)
       },
     });
 
     await transporter.sendMail({
-      from: `"Blacksila Website" <${process.env.GMAIL_USER}>`,
-      to: process.env.GMAIL_USER,       // send to the same inbox
+      from: `"Blacksila Website" <${GMAIL_USER}>`,
+      to: GMAIL_USER,       // send to the same inbox
       replyTo: `${name} <noreply@blacksila.in>`,
       subject: "New Consultation Request",
       text: emailBody,

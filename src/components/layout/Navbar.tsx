@@ -5,6 +5,7 @@ import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { LogoPlaceholder } from "@/components/ui/LogoPlaceholder";
 import { NAV_LINKS } from "@/data/navigation";
+import { SITE_NAME } from "@/config/site";
 
 // Spacer width matches the logo slot so nav links stay true-centre on desktop
 const LOGO_MAX_W = "248px";
@@ -55,7 +56,7 @@ export function Navbar() {
             light → /logo-light-version.png  (used on dark hero)
             dark  → /logo-dark-version.png   (used on white scrolled navbar)
         */}
-        <a href="#" aria-label="Blacksila Consultancy home">
+        <a href="#" aria-label={`${SITE_NAME} home`}>
           <LogoPlaceholder variant={scrolled ? "dark" : "light"} />
         </a>
 

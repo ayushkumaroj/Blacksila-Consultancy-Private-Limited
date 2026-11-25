@@ -3,6 +3,8 @@
  * All WhatsApp and phone links across the UI should use these constants.
  */
 
+import { NEXT_PUBLIC_APPS_SCRIPT_URL } from "@/lib/env.public";
+
 export const PHONE_NUMBER   = "+918102762470";          // E.164 format for tel: links
 export const PHONE_DISPLAY  = "+91 81027 62470";        // Human-readable display
 
@@ -25,6 +27,5 @@ export const PHONE_HREF = `tel:${PHONE_NUMBER}`;
  *     See: google-apps-script-setup.js for setup instructions.
  */
 export const APPS_SCRIPT_URL =
-  process.env.NEXT_PUBLIC_APPS_SCRIPT_URL ??
-  "PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE";
+  NEXT_PUBLIC_APPS_SCRIPT_URL;
 

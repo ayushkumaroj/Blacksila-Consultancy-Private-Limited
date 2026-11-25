@@ -1,12 +1,12 @@
-import { HeroSection } from "@/components/organisms/HeroSection";
-import { ServicesSection } from "@/components/organisms/ServicesSection";
-import { HowItWorksSection } from "@/components/organisms/HowItWorksSection";
-import { WhyChooseUsSection } from "@/components/organisms/WhyChooseUsSection";
-import { StatsSection } from "@/components/organisms/StatsSection";
-import { TestimonialsSection } from "@/components/organisms/TestimonialsSection";
-import { BlogSection } from "@/components/organisms/BlogSection";
-import { FaqSection } from "@/components/organisms/FaqSection";
-import { CtaSection } from "@/components/organisms/CtaSection";
+import { HeroSection } from "@/components/sections/HeroSection";
+import { ServicesSection } from "@/components/sections/ServicesSection";
+import { HowItWorksSection } from "@/components/sections/HowItWorksSection";
+import { WhyChooseUsSection } from "@/components/sections/WhyChooseUsSection";
+import { StatsSection } from "@/components/sections/StatsSection";
+import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
+import { BlogSection } from "@/components/sections/BlogSection";
+import { FaqSection } from "@/components/sections/FaqSection";
+import { CtaSection } from "@/components/sections/CtaSection";
 
 export default function HomePage() {
   return (

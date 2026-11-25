@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";
-import { Navbar } from "@/components/organisms/Navbar";
-import { Footer } from "@/components/organisms/Footer";
-import { WhatsAppWidget, CallFAB, CookieBanner } from "@/components/organisms/PersistentWidgets";
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
+import { WhatsAppWidget, CallFAB, CookieBanner } from "@/components/widgets/PersistentWidgets";
 
 export const metadata: Metadata = {
   title: "Blacksila Consultancy - Expert Business Consulting, Tax & Compliance",

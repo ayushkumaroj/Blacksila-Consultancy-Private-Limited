@@ -1,5 +1,5 @@
 import { Mail, Phone, MapPin } from "lucide-react";
-import { LogoPlaceholder } from "@/components/atoms/LogoPlaceholder";
+import { LogoPlaceholder } from "@/components/ui/LogoPlaceholder";
 import { PHONE_HREF, PHONE_DISPLAY } from "@/config/contact";
 
 const SOCIAL = [

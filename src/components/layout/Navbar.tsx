@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { LogoPlaceholder } from "@/components/atoms/LogoPlaceholder";
+import { LogoPlaceholder } from "@/components/ui/LogoPlaceholder";
 
 const NAV_LINKS = [
   { label: "Home", href: "#" },

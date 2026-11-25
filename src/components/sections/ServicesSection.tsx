@@ -1,108 +1,6 @@
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import {
-  ArrowRight, Briefcase, Calculator, Building2, BookOpen,
-  Users, Settings, Monitor, CheckCircle2,
-} from "lucide-react";
-
-const SERVICES = [
-  {
-    icon: Briefcase,
-    title: "Business Consulting & Advisory",
-    tag: "Core USP",
-    color: "teal",
-    items: [
-      "Business Strategy Consulting",
-      "Financial Consulting",
-      "Market Research & Demand Analysis",
-      "Competitor Analysis",
-      "Business Model Design",
-      "Risk Assessment",
-      "Growth & Expansion Planning",
-      "Decision Support & Business Advisory",
-    ],
-    closing: "We don't just help you start a business — we help you start the RIGHT business.",
-  },
-  {
-    icon: Calculator,
-    title: "Financial & Taxation Services",
-    tag: null,
-    color: "navy",
-    items: [
-      "Income Tax Filing & Planning",
-      "GST Registration & Return Filing",
-      "Budget Planning & Profit Improvement",
-      "Investment Guidance",
-      "Cost Reduction Strategies",
-    ],
-    closing: null,
-  },
-  {
-    icon: Building2,
-    title: "Compliance & Legal Services",
-    tag: null,
-    color: "teal",
-    items: [
-      "Company Registration (Pvt Ltd, LLP, OPC)",
-      "ROC Compliance",
-      "Legal Documentation & Agreements",
-      "Tax Compliance & Advisory",
-    ],
-    closing: null,
-  },
-  {
-    icon: BookOpen,
-    title: "Accounting & Bookkeeping",
-    tag: null,
-    color: "navy",
-    items: [
-      "Financial Record Maintenance",
-      "Bookkeeping Services",
-      "Audit Preparation",
-      "MIS & Financial Reporting",
-    ],
-    closing: null,
-  },
-  {
-    icon: Users,
-    title: "Labour & HR Consulting",
-    tag: null,
-    color: "teal",
-    items: [
-      "PF Registration & Compliance",
-      "ESIC Registration",
-      "Labour Law Compliance",
-      "Hiring & Workforce Planning",
-      "Salary Structure Design",
-    ],
-    closing: null,
-  },
-  {
-    icon: Settings,
-    title: "Operations Consulting",
-    tag: null,
-    color: "navy",
-    items: [
-      "Process Improvement",
-      "Cost Optimization",
-      "Efficiency Enhancement",
-      "Supply Chain Optimization",
-    ],
-    closing: null,
-  },
-  {
-    icon: Monitor,
-    title: "Digital & Technology Consulting",
-    tag: "New",
-    color: "teal",
-    items: [
-      "Website Development (WordPress / E-commerce)",
-      "Digital Marketing Strategy",
-      "CRM Setup",
-      "Business Automation Tools",
-    ],
-    closing: null,
-  },
-];
+import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { SERVICES } from "@/data/services";
 
 export function ServicesSection() {
   const [featured, ...rest] = SERVICES;
@@ -158,7 +56,7 @@ export function ServicesSection() {
                   {featured.title}
                 </h3>
                 <p className="text-[0.9375rem] font-medium leading-relaxed" style={{ color: "var(--color-teal-dark)" }}>
-                  We help you make the right decisions with data-driven insights
+                  {featured.description}
                 </p>
 
                 <div className="mt-8 flex items-center gap-1.5 text-[var(--color-teal)] text-[0.875rem] font-bold opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0">

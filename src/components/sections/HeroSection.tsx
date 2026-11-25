@@ -3,32 +3,9 @@
 import { Button } from "@/components/ui/Button";
 import {
   ArrowRight, Shield, Clock,
-  FileText, Calculator, Building2, FileCode,
   CheckCircle2,
 } from "lucide-react";
-
-const ALL_SERVICES = [
-  "Business Strategy Consulting",
-  "GST Registration & Filing",
-  "Company Registration",
-  "Income Tax Filing",
-  "Market Research & Analysis",
-  "ROC Compliance",
-  "Trademark Registration",
-  "PF & ESIC Registration",
-  "Labour Law Compliance",
-  "Digital Marketing Strategy",
-  "FSSAI License",
-  "Import Export Code (IEC)",
-];
-
-// ── Service cards inside the right panel ─────────────────────────────
-const SERVICES = [
-  { icon: Calculator,  label: "GST Return",  status: "Filed ✓",     state: "done"    },
-  { icon: FileText,    label: "ITR Filing",  status: "In Progress", state: "active"  },
-  { icon: FileCode,    label: "ROC Annual",  status: "Filed ✓",     state: "done"    },
-  { icon: Building2,   label: "Payroll",     status: "Processed",   state: "done"    },
-];
+import { HERO_COMPLIANCE_SERVICES, HERO_MARQUEE_SERVICES } from "@/data/hero";
 
 // ── Right visual: Compliance Health Card ─────────────────────────────
 function ComplianceCard() {
@@ -113,7 +90,7 @@ function ComplianceCard() {
 
         {/* ── Service 2 × 2 grid ── */}
         <div className="grid grid-cols-2" style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-          {SERVICES.map((svc, i) => {
+          {HERO_COMPLIANCE_SERVICES.map((svc, i) => {
             const Icon = svc.icon;
             const isDone = svc.state === "done";
 
@@ -355,7 +332,7 @@ export function HeroSection() {
       >
         <div className="container-ds overflow-hidden px-0">
           <div className="py-3.5 animate-marquee group-hover:[animation-play-state:paused]">
-          {[...ALL_SERVICES, ...ALL_SERVICES].map((service, i) => (
+          {[...HERO_MARQUEE_SERVICES, ...HERO_MARQUEE_SERVICES].map((service, i) => (
             <div key={`${service}-${i}`} className="flex items-center gap-6 px-6 md:gap-10 md:px-10 shrink-0">
               <span
                 className="flex items-center gap-2.5 text-[0.8125rem] font-medium whitespace-nowrap cursor-default transition-colors duration-300 hover:text-white"

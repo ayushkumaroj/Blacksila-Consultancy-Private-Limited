@@ -1,67 +1,41 @@
+import type { ReactNode } from "react";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { LogoPlaceholder } from "@/components/ui/LogoPlaceholder";
 import { PHONE_HREF, PHONE_DISPLAY } from "@/config/contact";
+import {
+  FOOTER_COMPANY_LINKS,
+  FOOTER_POLICY_LINKS,
+  FOOTER_SERVICE_LINKS,
+  FOOTER_SOCIAL_LINKS,
+} from "@/data/footer-links";
+import type { FooterSocialIcon } from "@/types";
 
-const SOCIAL = [
-  {
-    label: "LinkedIn",
-    href: "#",
-    svg: (
+const SOCIAL_ICONS: Record<FooterSocialIcon, ReactNode> = {
+  linkedin: (
       <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
         <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
         <rect x="2" y="9" width="4" height="12" />
         <circle cx="4" cy="4" r="2" />
       </svg>
-    ),
-  },
-  {
-    label: "Twitter / X",
-    href: "#",
-    svg: (
+  ),
+  twitter: (
       <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
         <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
       </svg>
-    ),
-  },
-  {
-    label: "Facebook",
-    href: "#",
-    svg: (
+  ),
+  facebook: (
       <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
         <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
       </svg>
-    ),
-  },
-  {
-    label: "Instagram",
-    href: "#",
-    svg: (
+  ),
+  instagram: (
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
         <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
         <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
         <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
       </svg>
-    ),
-  },
-];
-
-const SERVICES_LINKS = [
-  "Company Registration",
-  "GST Services",
-  "Income Tax Filing",
-  "Accounting & Bookkeeping",
-  "ROC Compliance",
-  "Payroll Processing",
-  "Trademark Registration",
-];
-
-const COMPANY_LINKS = [
-  { label: "About Us", href: "#" },
-  { label: "How It Works", href: "#" },
-  { label: "Blog", href: "#" },
-  { label: "Careers", href: "#" },
-  { label: "Contact Us", href: "#" },
-];
+  ),
+};
 
 export function Footer() {
   return (
@@ -105,14 +79,14 @@ export function Footer() {
 
             {/* Social icons */}
             <div className="flex items-center gap-2 pt-1">
-              {SOCIAL.map(({ label, href, svg }) => (
+              {FOOTER_SOCIAL_LINKS.map(({ label, href, icon }) => (
                 <a
                   key={label}
                   href={href}
                   aria-label={label}
                   className="w-9 h-9 rounded-lg border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:border-white/30 hover:bg-white/5 transition-all"
                 >
-                  {svg}
+                  {SOCIAL_ICONS[icon]}
                 </a>
               ))}
             </div>
@@ -124,13 +98,13 @@ export function Footer() {
             <div className="lg:col-span-3">
               <h4 className="text-[0.875rem] font-semibold text-white mb-5 uppercase tracking-wider">Services</h4>
               <ul className="flex flex-col gap-2.5">
-                {SERVICES_LINKS.map((s) => (
-                  <li key={s}>
+                {FOOTER_SERVICE_LINKS.map(({ label, href }) => (
+                  <li key={label}>
                     <a
-                      href="#"
+                      href={href}
                       className="text-[0.875rem] hover:text-[var(--color-teal-light)] inline-flex transition-colors"
                     >
-                      {s}
+                      {label}
                     </a>
                   </li>
                 ))}
@@ -141,7 +115,7 @@ export function Footer() {
             <div className="lg:col-span-2">
               <h4 className="text-[0.875rem] font-semibold text-white mb-5 uppercase tracking-wider">Company</h4>
               <ul className="flex flex-col gap-2.5">
-                {COMPANY_LINKS.map(({ label, href }) => (
+                {FOOTER_COMPANY_LINKS.map(({ label, href }) => (
                   <li key={label}>
                     <a
                       href={href}
@@ -187,9 +161,9 @@ export function Footer() {
             &copy; {new Date().getFullYear()} BlackSila Consultancy Pvt. Ltd. All rights reserved.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-1">
-            {["Privacy Policy", "Terms of Service", "Refund Policy"].map((link) => (
-              <a key={link} href="#" className="text-white/40 hover:text-white/70 transition-colors">
-                {link}
+            {FOOTER_POLICY_LINKS.map(({ label, href }) => (
+              <a key={label} href={href} className="text-white/40 hover:text-white/70 transition-colors">
+                {label}
               </a>
             ))}
           </div>

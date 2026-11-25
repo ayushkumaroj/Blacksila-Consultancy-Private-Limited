@@ -4,13 +4,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { LogoPlaceholder } from "@/components/ui/LogoPlaceholder";
-
-const NAV_LINKS = [
-  { label: "Home", href: "#" },
-  { label: "Services", href: "#services" },
-  { label: "About Us", href: "#about" },
-  { label: "Blog", href: "#blog" },
-];
+import { NAV_LINKS } from "@/data/navigation";
 
 // Spacer width matches the logo slot so nav links stay true-centre on desktop
 const LOGO_MAX_W = "248px";

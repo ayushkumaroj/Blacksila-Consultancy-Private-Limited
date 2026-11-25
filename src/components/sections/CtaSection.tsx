@@ -4,26 +4,8 @@ import { useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { CheckCircle2, Lock, ShieldCheck, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
 import { WA_NUMBER, APPS_SCRIPT_URL } from "@/config/contact";
-
-// ── Constants ────────────────────────────────────────────────────────────────
-const TRUST_POINTS = [
-  "Free initial consultation — no credit card",
-  "Response within 2 business hours",
-  "Dedicated expert assigned to your account",
-];
-
-const SERVICES = [
-  "Business Consulting & Advisory",
-  "Company Registration",
-  "GST Registration & Filing",
-  "Income Tax Filing",
-  "Compliance & Legal Services",
-  "Accounting & Bookkeeping",
-  "Labour & HR Consulting",
-  "Digital & Technology Consulting",
-  "Business Registration / License",
-  "Other",
-];
+import { CTA_TRUST_CLAIMS } from "@/data/cta";
+import { SERVICE_OPTIONS } from "@/data/service-options";
 
 // Indian mobile: 10 digits, starts with 6–9
 const INDIAN_MOBILE_RE = /^[6-9]\d{9}$/;
@@ -190,8 +172,8 @@ export function CtaSection() {
             <div className="h-px w-full max-w-sm" style={{ background: "linear-gradient(to right, rgba(255,255,255,0.1), transparent)" }} />
 
             <ul className="flex flex-col gap-4">
-              {TRUST_POINTS.map((pt) => (
-                <li key={pt} className="flex items-start gap-3.5">
+              {CTA_TRUST_CLAIMS.slice(0, 3).map((claim) => (
+                <li key={claim.text} className="flex items-start gap-3.5">
                   <div 
                     className="mt-[4px] rounded-full p-[3px] flex-shrink-0"
                     style={{ background: "rgba(25,196,181,0.15)", color: "var(--color-teal-light)" }}
@@ -199,7 +181,7 @@ export function CtaSection() {
                     <CheckCircle2 size={15} strokeWidth={2.5} />
                   </div>
                   <span className="text-[1.0625rem] font-medium leading-relaxed" style={{ color: "rgba(255,255,255,0.85)" }}>
-                    {pt}
+                    {claim.text}
                   </span>
                 </li>
               ))}
@@ -213,7 +195,7 @@ export function CtaSection() {
               >
                 <ShieldCheck size={18} className="text-[var(--color-teal-light)] flex-shrink-0" />
                 <span className="text-[0.875rem] font-bold tracking-wide" style={{ color: "rgba(255,255,255,0.85)" }}>
-                  100% Free · No Commitment · Response within 2 Hours
+                  {CTA_TRUST_CLAIMS[3].text}
                 </span>
               </div>
             </div>
@@ -298,8 +280,8 @@ export function CtaSection() {
                     disabled={status === "loading"}
                   >
                     <option value="">Select a service focus</option>
-                    {SERVICES.map((s) => (
-                      <option key={s} value={s}>{s}</option>
+                    {SERVICE_OPTIONS.map(({ value, label }) => (
+                      <option key={value} value={value}>{label}</option>
                     ))}
                   </select>
                   {errors.service && (
@@ -360,7 +342,7 @@ export function CtaSection() {
                 <div className="flex items-center justify-center gap-2 mt-1">
                   <Lock size={11} className="text-gray-400" />
                   <p className="text-[0.75rem] text-gray-500 font-medium tracking-wide">
-                    Your information is 100% secure and never shared
+                    {CTA_TRUST_CLAIMS[4].text}
                   </p>
                 </div>
 

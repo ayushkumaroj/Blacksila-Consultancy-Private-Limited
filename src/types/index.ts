@@ -12,3 +12,5 @@ export type { Testimonial } from "./testimonials";
 export type { BlogPost } from "./blog";
 export type { Faq, LicenseGuideItem } from "./faq";
 export type { AboutSummaryCard, WhyChooseUsValue } from "./why-choose-us";
+export type { ServiceOption } from "./service-options";
+export type { CtaTrustClaim, CtaTrustClaimPlacement } from "./cta";

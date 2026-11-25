@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { CheckCircle2, Lock, ShieldCheck, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
 import { WA_NUMBER, APPS_SCRIPT_URL } from "@/config/contact";
-import { CTA_TRUST_CLAIMS } from "@/data/cta";
+import { CTA_BADGE_TEXT, CTA_PRIVACY_NOTE, CTA_TRUST_POINTS } from "@/data/cta";
 import { SERVICE_OPTIONS } from "@/data/service-options";
 
 // Indian mobile: 10 digits, starts with 6–9
@@ -172,7 +172,7 @@ export function CtaSection() {
             <div className="h-px w-full max-w-sm" style={{ background: "linear-gradient(to right, rgba(255,255,255,0.1), transparent)" }} />
 
             <ul className="flex flex-col gap-4">
-              {CTA_TRUST_CLAIMS.slice(0, 3).map((claim) => (
+              {CTA_TRUST_POINTS.map((claim) => (
                 <li key={claim.text} className="flex items-start gap-3.5">
                   <div 
                     className="mt-[4px] rounded-full p-[3px] flex-shrink-0"
@@ -195,7 +195,7 @@ export function CtaSection() {
               >
                 <ShieldCheck size={18} className="text-[var(--color-teal-light)] flex-shrink-0" />
                 <span className="text-[0.875rem] font-bold tracking-wide" style={{ color: "rgba(255,255,255,0.85)" }}>
-                  {CTA_TRUST_CLAIMS[3].text}
+                  {CTA_BADGE_TEXT}
                 </span>
               </div>
             </div>
@@ -342,7 +342,7 @@ export function CtaSection() {
                 <div className="flex items-center justify-center gap-2 mt-1">
                   <Lock size={11} className="text-gray-400" />
                   <p className="text-[0.75rem] text-gray-500 font-medium tracking-wide">
-                    {CTA_TRUST_CLAIMS[4].text}
+                    {CTA_PRIVACY_NOTE}
                   </p>
                 </div>
 

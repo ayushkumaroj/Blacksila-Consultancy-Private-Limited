@@ -1,9 +1,6 @@
 import type { LucideIcon } from "lucide-react";
 
-export type CtaTrustClaimPlacement = "bullet" | "reassurance" | "security";
-
-export interface CtaTrustClaim {
+export interface CtaTrustPoint {
   text: string;
   icon: LucideIcon;
-  placement: CtaTrustClaimPlacement;
 }
